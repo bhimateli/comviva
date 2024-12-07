@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "total_balance": {
+      "type": "number",
+      "minimum": 0
+    },
+    "transactions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "merchant": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          }
+        },
+        "required": ["date", "amount", "merchant", "category"]
+      }
+    },
+    "available_balance": {
+      "type": "number",
+      "minimum": 0
+    },
+    "top_categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          }
+        },
+        "required": ["category", "amount"]
+      }
+    },
+    "monthly_trends": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "month": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}$"
+          },
+          "amount": {
+            "type": "number"
+          }
+        },
+        "required": ["month", "amount"]
+      }
+    }
+  },
+  "required": ["total_balance", "transactions", "available_balance", "top_categories", "monthly_trends"]
+}

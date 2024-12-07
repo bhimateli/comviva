@@ -1,0 +1,16 @@
+Test Case ID,Description,Method,Endpoint,Headers,Payload,ExpectedStatusCode,ExpectedResponseBody,Remarks
+TC01,Verify API returns all bank accounts,GET,/api/v1/bank-accounts,None,None,200,Non-empty list with valid account data,Basic API functionality
+TC02,Verify account_id is present in each account,GET,/api/v1/bank-accounts,None,None,200,account_id present and not null,Data validation
+TC03,Verify account_type is present in each account,GET,/api/v1/bank-accounts,None,None,200,account_type present and valid,Data validation
+TC04,Verify bank_name is present in each account,GET,/api/v1/bank-accounts,None,None,200,bank_name present and valid,Data validation
+TC05,Verify balance is present and numeric for each account,GET,/api/v1/bank-accounts,None,None,200,balance is numeric and >= 0,Data integrity
+TC06,Verify currency is present and valid for each account,GET,/api/v1/bank-accounts,None,None,200,Valid ISO 4217 currency codes,Data integrity
+TC07,Verify API supports filtering by account_type,GET,/api/v1/bank-accounts?type=savings,None,None,200,List contains only savings accounts,Filtering functionality
+TC08,Verify API supports sorting by balance (asc),GET,/api/v1/bank-accounts?sort=balance_asc,None,None,200,Accounts sorted by balance in ascending order,Sorting functionality
+TC09,Verify API supports sorting by balance (desc),GET,/api/v1/bank-accounts?sort=balance_desc,None,None,200,Accounts sorted by balance in descending order,Sorting functionality
+TC10,Verify API response time is within acceptable limits,GET,/api/v1/bank-accounts,None,None,200,Response time < 2 seconds,Performance testing
+TC11,Verify API supports pagination with limit=5,GET,/api/v1/bank-accounts?limit=5,None,None,200,Maximum 5 accounts returned,Pagination support
+TC12,Verify API supports pagination with offset=5,GET,/api/v1/bank-accounts?offset=5,None,None,200,Accounts start from the 6th item,Pagination support
+TC13,Verify API handles user with no bank accounts,GET,/api/v1/bank-accounts,None,None,200,Empty list returned,Edge case
+TC14,Verify API handles large number of accounts gracefully,GET,/api/v1/bank-accounts,None,None,200,Complete and accurate response,Scalability testing
+TC15,Verify headers contain required security tokens,GET,/api/v1/bank-accounts,Authorization: Bearer <token>,None,200,Valid accounts with secure token,Security validation

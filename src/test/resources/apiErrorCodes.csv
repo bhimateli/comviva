@@ -1,0 +1,6 @@
+testCaseName,actualErrorCode,expectedErrorCode
+Test_InvalidQueryParam,400,400
+Test_MissingRequiredField,422,422
+Test_UnauthorizedAccess,401,401
+Test_ResourceNotFound,404,404
+Test_InternalServerError,500,500

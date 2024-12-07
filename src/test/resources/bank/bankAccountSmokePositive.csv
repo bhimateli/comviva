@@ -1,0 +1,3 @@
+TestCaseID,TestCaseName,StatusCode
+TC001,"Verify that the endpoint retrieves all bank accounts associated with the user.",200
+TC002,"Verify that the endpoint returns a list of bank accounts with correct data types for all fields",200

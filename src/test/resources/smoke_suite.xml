@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="Smokes_Suites" parallel="methods" thread-count="1"	preserve-order="false">
+
+    <listeners>
+        <listener
+                class-name="common.CustomApiListener" />
+
+    </listeners>
+
+    <test name="Smokes_Suites-AccountSmokeTest">
+        <classes>
+            <class name="api.smoke.AccountSmokeTest"/>
+        </classes>
+
+    </test>
+
+     <test name="Smokes_Suites-Authorization">
+         <classes>
+             <class name="api.smoke.AuthorizationSmokeTest"/>
+         </classes>
+
+     </test>
+
+    <test name="Smokes_Suites-LoanTest">
+        <classes>
+            <class name="api.smoke.LoanTest"/>
+        </classes>
+
+    </test>
+
+    <test name="Smokes_Suites-Investment">
+        <classes>
+            <class name="api.smoke.InvestmentSmokeTest"/>
+        </classes>
+
+    </test>
+
+    <test name="Smokes_Suites-SpendingInsight">
+        <classes>
+            <class name="api.smoke.SpendApiTest"/>
+        </classes>
+
+    </test>
+
+    <test name="Smokes_Suites-EPFBalanceTest">
+        <classes>
+            <class name="api.smoke.EPFBalanceTest"/>
+        </classes>
+
+    </test>
+
+
+</suite>

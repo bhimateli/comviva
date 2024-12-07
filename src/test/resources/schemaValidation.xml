@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="SAAS - API Product" parallel="methods" thread-count="1"	preserve-order="false">
+
+    <listeners>
+        <listener
+                class-name="common.CustomApiListener" />
+
+    </listeners>
+
+    <test name="SchemaValidation_Suites">
+        <classes>
+            <class name="api.schema.SchemaValidationTest"/>
+        </classes>
+
+    </test>
+
+    <!-- <test name="COMMENTS_TESTCASES">
+         <classes>
+             <class name="api.smoke.ErrorCodeValidationTest"/>
+         </classes>
+
+     </test>
+ -->
+
+
+</suite>
