@@ -1,13 +1,10 @@
 {
   "request": {
     "method": "POST",
-    "urlPath": "/auth/token",
+    "urlPath": "/auth/",
     "bodyPatterns": [
       {
-        "equalToJson": {
-          "username": "test_user",
-          "password": "test_password"
-        }
+        "equalToJson": {"username": "test_user", "password": "test_password"}
       }
     ]
   },

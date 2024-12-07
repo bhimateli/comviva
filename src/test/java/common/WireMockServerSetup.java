@@ -23,13 +23,13 @@ public  class WireMockServerSetup {
             WireMock.configureFor("localhost", 8083);
 
             // Set up stubs for all APIs
-            WireMock.stubFor(WireMock.get(WireMock.urlEqualTo("/loan?loanId=123456"))
+            WireMock.stubFor(WireMock.get(WireMock.urlEqualTo("/loan"))
                     .willReturn(WireMock.aResponse()
                             .withStatus(200)
                             .withHeader("Content-Type", "application/json")
                             .withBodyFile("loan-response.json")));
 
-            WireMock.stubFor(WireMock.get(WireMock.urlEqualTo("/investment?investmentId=987654"))
+            WireMock.stubFor(WireMock.get(WireMock.urlEqualTo("/investment"))
                     .willReturn(WireMock.aResponse()
                             .withStatus(200)
                             .withHeader("Content-Type", "application/json")
@@ -53,17 +53,17 @@ public  class WireMockServerSetup {
                             .withHeader("Content-Type", "application/json")
                             .withBodyFile("epf_balance_response.json")));
 
-            WireMock.stubFor(WireMock.get(WireMock.urlEqualTo("/liabilities?loanId=789101"))
+            WireMock.stubFor(WireMock.get(WireMock.urlEqualTo("/liabilities"))
                     .willReturn(WireMock.aResponse()
                             .withStatus(200)
                             .withHeader("Content-Type", "application/json")
                             .withBodyFile("liabilities-response.json")));
 
-           WireMock.stubFor(WireMock.post(WireMock.urlEqualTo("/auth"))
+           WireMock.stubFor(WireMock.post(WireMock.urlEqualTo("/auth/token"))
                     .withHeader("Content-Type", WireMock.equalTo("application/json"))
                     .withRequestBody(WireMock.equalToJson("{ \"username\": \"test_user\", \"password\": \"test_password\" }"))
                     .willReturn(WireMock.aResponse()
-                            .withStatus(200)
+                            .withStatus(201)
                             .withHeader("Content-Type", "application/json")
                             .withBodyFile("auth-response.json")));
         }

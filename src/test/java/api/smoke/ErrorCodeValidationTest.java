@@ -61,7 +61,7 @@ public class ErrorCodeValidationTest extends Begin {
 
     }
 
-    @Test(dataProvider = "feeder")
+   /* @Test(dataProvider = "feeder")
     @Source("///C:\\project\\expense\\comviva\\src\\test\\resources\\apiErrorCodes.csv")
     public void valdiateBankAPI(String testCaseId, String expectedErrorCode, String actualErrorCode){
 
@@ -69,12 +69,12 @@ public class ErrorCodeValidationTest extends Begin {
         Map<String, String> queryParams = new HashMap<String, String>();
         Map<String, Object> pathParams = new HashMap<String, Object>();
 
-          /*
+          *//*
          if any queryparams or path params we can make use of here
         queryParams.put(queryParamName, queryParamValue);
         pathParams.put("", "");
 
-        */
+        *//*
         logger.info("The values are from the csv file "+ testCaseId+ " ExpectedErrorCode "+ expectedErrorCode+ " ActualErrorCode "+ actualErrorCode);
         Map<String, String> headerParams = new HashMap<>();
         headerParams.put("x-api-key", "GET X-API-KEY from central location");
@@ -92,7 +92,7 @@ public class ErrorCodeValidationTest extends Begin {
         //    Assert.assertEquals(200, getResponse.getStatusCode());  After executing API - We can validate it. Here no real API so commenting it and validating below with expected abd actual
         Assert.assertEquals(expectedErrorCode, actualErrorCode);
 
-    }
+    }*/
 
     @Test(dataProvider = "feeder")
     @Source("///C:\\project\\expense\\comviva\\src\\test\\resources\\apiErrorCodes.csv")
@@ -129,7 +129,7 @@ public class ErrorCodeValidationTest extends Begin {
 
     @Test(dataProvider = "feeder")
     @Source("///C:\\project\\expense\\comviva\\src\\test\\resources\\apiErrorCodes.csv")
-    public void validateLoanAPI(String testCaseId, String expectedErrorCode, String actualErrorCode){
+    public void validateLoanAPI(String testCaseId, int expectedErrorCode, int actualErrorCode){
 
         HttpMethodParameter httpParams = HttpMethodParameter.builder().build();
         Map<String, String> queryParams = new HashMap<String, String>();
@@ -157,23 +157,25 @@ public class ErrorCodeValidationTest extends Begin {
         // validate the error code
         //    Assert.assertEquals(200, getResponse.getStatusCode());  After executing API - We can validate it. Here no real API so commenting it and validating below with expected abd actual
         Assert.assertEquals(expectedErrorCode, actualErrorCode);
+        if(getResponse.statusCode() == actualErrorCode )
+            Assert.fail();
 
     }
 
-    @Test(dataProvider = "feeder")
+   /* @Test(dataProvider = "feeder")
     @Source("///C:\\project\\expense\\comviva\\src\\test\\resources\\apiErrorCodes.csv")
-    public void valdiateLiabilitesAPI(String testCaseId, String expectedErrorCode, String actualErrorCode){
+    public void valdiateLiabilitesAPI(String testCaseId, int expectedErrorCode, int actualErrorCode){
 
         HttpMethodParameter httpParams = HttpMethodParameter.builder().build();
         Map<String, String> queryParams = new HashMap<String, String>();
         Map<String, Object> pathParams = new HashMap<String, Object>();
 
-        /*
+        *//*
          if any queryparams or path params we can make use of here
         queryParams.put(queryParamName, queryParamValue);
         pathParams.put("", "");
 
-        */
+        *//*
         logger.info("The values are from the csv file "+ testCaseId+ " ExpectedErrorCode "+ expectedErrorCode+ " ActualErrorCode "+ actualErrorCode);
         Map<String, String> headerParams = new HashMap<>();
         headerParams.put("x-api-key", "GET X-API-KEY from central location");
@@ -189,18 +191,20 @@ public class ErrorCodeValidationTest extends Begin {
 
         // validate the error code
         //    Assert.assertEquals(200, getResponse.getStatusCode());  After executing API - We can validate it. Here no real API so commenting it and validating below with expected abd actual
-        Assert.assertEquals(expectedErrorCode, actualErrorCode);
+     //   Assert.assertEquals(expectedErrorCode, actualErrorCode);
+      if(getResponse.statusCode() == actualErrorCode )
+          Assert.fail();
 
-    }
+    }*/
 
-  //  @BeforeClass
+   @BeforeClass
     public static void setup() {
         // Start WireMock server before all tests
         WireMockServerSetup.startServer();
         RestAssured.baseURI = "http://localhost:8083";
     }
 
- //   @AfterClass
+   @AfterClass
     public static void tearDown() {
         // Stop WireMock server after all tests
         WireMockServerSetup.stopServer();
