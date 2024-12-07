@@ -2,10 +2,14 @@ package api.regression;
 
 import common.Begin;
 import common.Configurations;
+import common.WireMockServerSetup;
 import constants.UrlConstants;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import junit.framework.Assert;
 import org.databene.benerator.anno.Source;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pojo.HttpMethodParameter;
 import util.RestUtils;
@@ -24,8 +28,7 @@ public class AccountRegressionTest extends Begin {
     RestUtils restUtil = new RestUtils();
     @Test(dataProvider = "feeder")
     @Source("///C:\\project\\expense\\comviva\\src\\test\\resources\\bank\\bankAccounts_regressionPositive.csv")
-    public void getAccountsTest(String testCaseId, String testCaseName,String method,String endPoint,String headers,String payload,
-                                int expectedStatusCode, String expectedResponseBody,String remarks){
+    public void getAccountsTest(String testCaseId, String testCaseName,int expectedStatusCode,String expectedResponseBody,String remarks){
         HttpMethodParameter httpParams = HttpMethodParameter.builder().build();
         Map<String, String> queryParams = new HashMap<String, String>();
        // Map<String, Object> pathParams = new HashMap<String, Object>();
@@ -45,7 +48,7 @@ public class AccountRegressionTest extends Begin {
       //  httpParams.setPathParams(pathParams);
 
         httpParams.setQueryParams(queryParams);
-        queryParams.put("Accountid", "12345");
+        queryParams.put("accountId", "456789");
         httpParams.setQueryParams(queryParams);
         // call GET API and validate it -
         Response getResponse = restUtil.getOperation(httpParams, UrlConstants.GET_ACCOUNT,
@@ -55,10 +58,22 @@ public class AccountRegressionTest extends Begin {
 
         // validate the error code
         //    Assert.assertEquals(200, getResponse.getStatusCode());  After executing API - We can validate it. Here no real API so commenting it and validating below with expected abd actual
-        Assert.assertEquals(expectedStatusCode, 200);
+        Assert.assertEquals(expectedStatusCode, getResponse.statusCode());
         /*
         add any other validation here.
          */
 
+    }
+    @BeforeClass
+    public static void setup() {
+        // Start WireMock server before all tests
+        WireMockServerSetup.startServer();
+        RestAssured.baseURI = "http://localhost:8083";
+    }
+
+     @AfterClass
+    public static void tearDown() {
+        // Stop WireMock server after all tests
+        WireMockServerSetup.stopServer();
     }
 }

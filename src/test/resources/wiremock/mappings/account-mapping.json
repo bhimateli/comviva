@@ -4,7 +4,7 @@
     "url": "/account",
     "queryParameters": {
       "accountId": {
-        "equalTo": "456789"
+        "matches": ".*"
       }
     }
   },
