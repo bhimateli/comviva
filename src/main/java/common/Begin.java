@@ -16,10 +16,10 @@ public class Begin extends FeedTest {
 
     @BeforeSuite(alwaysRun = true)
     @Parameters({ "config_file" })
-    public void setUpTest(@Optional("C:\\Automation\\social\\social\\src\\test\\resource\\Config.properties") String configFile) throws Exception {
+    public void setUpTest(@Optional("C:\\project\\expense\\comviva\\src\\test\\resources\\MainDriver.Properties") String configFile) throws Exception {
         System.out.println("Begin class is going to begin");
         if (configFile.isEmpty()) {
-            configFile = "C:\\Automation\\social\\social\\src\\test\\resource\\Config.properties";
+            configFile = "C:\\project\\expense\\comviva\\src\\test\\resources\\MainDriver.Properties";
         }
         Initializer.init(configFile);
     }

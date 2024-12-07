@@ -24,7 +24,7 @@ public class Configurations {
 
     private Configurations() {
 
-        System.out.println("Social Network:: Configuration Object Initialised");
+        System.out.println("Comviva:: Configuration Object Initialised");
 
     }
 
