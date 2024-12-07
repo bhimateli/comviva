@@ -2,10 +2,14 @@ package api.smoke;
 
 import common.Begin;
 import common.Configurations;
+import common.WireMockServerSetup;
 import constants.UrlConstants;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import junit.framework.Assert;
 import org.databene.benerator.anno.Source;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pojo.HttpMethodParameter;
 import util.RestUtils;
@@ -16,7 +20,7 @@ import java.util.Map;
 /*
 @author Bhimashankar Teli
  */
-public class SpendApiTest extends Begin {
+public class SpendingInsightApiTest extends Begin {
     Configurations configurationObj = Configurations.getInstance();
     RestUtils restUtil = new RestUtils();
     @Test(dataProvider = "feeder")
@@ -49,6 +53,19 @@ public class SpendApiTest extends Begin {
 
         // validate the error code
         //    Assert.assertEquals(200, getResponse.getStatusCode());  After executing API - We can validate it. Here no real API so commenting it and validating below with expected abd actual
-        Assert.assertEquals(200, statusCode);
+        Assert.assertEquals(200, getResponse.statusCode());
+    }
+
+    //@BeforeClass
+    public static void setup() {
+        // Start WireMock server before all tests
+        WireMockServerSetup.startServer();
+     //   RestAssured.baseURI = "http://localhost:8083";
+    }
+
+   // @AfterClass
+    public static void tearDown() {
+        // Stop WireMock server after all tests
+        WireMockServerSetup.stopServer();
     }
 }

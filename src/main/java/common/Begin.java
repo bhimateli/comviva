@@ -22,6 +22,7 @@ public class Begin extends FeedTest {
             configFile = "C:\\project\\expense\\comviva\\src\\test\\resources\\MainDriver.Properties";
         }
         Initializer.init(configFile);
+
     }
 
 

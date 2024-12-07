@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/investments"
+
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "investment_response.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

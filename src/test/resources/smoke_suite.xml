@@ -35,10 +35,9 @@
         </classes>
 
     </test>
-
     <test name="Smokes_Suites-SpendingInsight">
         <classes>
-            <class name="api.smoke.SpendApiTest"/>
+            <class name="api.smoke.SpendingInsightApiTest"/>
         </classes>
 
     </test>

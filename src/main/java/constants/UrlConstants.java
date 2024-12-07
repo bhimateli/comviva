@@ -11,9 +11,10 @@ public class UrlConstants {
     public final static String GET_BANK_SPENDING = "/bank/spending";
     public final static String GET_INVESTMENT = "/investments";
     public final static String GET_LIABILITES = "/liabilities";
-    public final static String GET_EPF_BALANCE = "/epf/balance ";
-    public final static String GET_LOAN = "/loan ";
-    public final static String GET_ACCOUNT = "/acount";
+    public final static String GET_EPF_BALANCE = "/epfbalance ";
+    public final static String GET_LOAN = "/loans ";
+    public final static String GET_ACCOUNT = "/account";
+
 
 
 }

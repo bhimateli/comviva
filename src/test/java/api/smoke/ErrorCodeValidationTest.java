@@ -2,9 +2,13 @@ package api.smoke;
 
 import common.Begin;
 import common.Configurations;
+import common.WireMockServerSetup;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import junit.framework.Assert;
 import org.databene.benerator.anno.Source;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pojo.HttpMethodParameter;
 import util.RestUtils;
@@ -187,5 +191,18 @@ public class ErrorCodeValidationTest extends Begin {
         //    Assert.assertEquals(200, getResponse.getStatusCode());  After executing API - We can validate it. Here no real API so commenting it and validating below with expected abd actual
         Assert.assertEquals(expectedErrorCode, actualErrorCode);
 
+    }
+
+  //  @BeforeClass
+    public static void setup() {
+        // Start WireMock server before all tests
+        WireMockServerSetup.startServer();
+        RestAssured.baseURI = "http://localhost:8083";
+    }
+
+ //   @AfterClass
+    public static void tearDown() {
+        // Stop WireMock server after all tests
+        WireMockServerSetup.stopServer();
     }
 }

@@ -1,0 +1,7 @@
+{
+  "accountId": "12345",
+  "accountType": "Savings",
+  "balance": 1500.75,
+  "currency": "USD",
+  "createdAt": "2024-01-01T10:00:00Z"
+}

@@ -7,6 +7,7 @@ import com.aventstack.extentreports.Status;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+
 import org.testng.TestListenerAdapter;
 import org.testng.annotations.Test;
 
@@ -71,6 +72,7 @@ public class CustomApiListener extends Begin implements ITestListener {
 
     @Override
     public void onStart(ITestContext result) {
+
         ExtentManager.getInstance();
                // getMethod().getMethodName());
         System.out.println(

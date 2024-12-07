@@ -1,0 +1,11 @@
+{
+  "employee_name": "John Doe",
+  "epf_account_number": "EPF123456789",
+  "current_balance": 125000.00,
+  "last_contribution": {
+    "month": "2024-11",
+    "amount": 5000.00
+  },
+  "total_contributions": 100000.00,
+  "employer_contributions": 25000.00
+}

@@ -1,0 +1,24 @@
+{
+  "total_investments": 25000.00,
+  "investment_summary": [
+    {
+      "type": "Mutual Fund",
+      "amount": 15000.00,
+      "current_value": 16000.00
+    },
+    {
+      "type": "Stocks",
+      "amount": 5000.00,
+      "current_value": 4800.00
+    },
+    {
+      "type": "Bonds",
+      "amount": 5000.00,
+      "current_value": 5000.00
+    }
+  ],
+  "top_performing_investment": {
+    "type": "Mutual Fund",
+    "growth": 6.67
+  }
+}

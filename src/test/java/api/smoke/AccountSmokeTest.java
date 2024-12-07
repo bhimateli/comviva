@@ -2,18 +2,21 @@ package api.smoke;
 
 import common.Begin;
 import common.Configurations;
+import common.ExtentTestManager;
+import common.WireMockServerSetup;
 import constants.UrlConstants;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import junit.framework.Assert;
 import org.databene.benerator.anno.Source;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pojo.HttpMethodParameter;
 import util.RestUtils;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static org.databene.benerator.util.LineShuffler.logger;
 
 /*
 @author Bhimashankar Teli
@@ -49,7 +52,7 @@ public class AccountSmokeTest extends Begin {
 
         // validate the error code
         //    Assert.assertEquals(200, getResponse.getStatusCode());  After executing API - We can validate it. Here no real API so commenting it and validating below with expected abd actual
-        Assert.assertEquals(statusCode, 200);
+        Assert.assertEquals(statusCode, getResponse.statusCode());
         /*
         add any other validation here.
          */
@@ -85,9 +88,22 @@ public class AccountSmokeTest extends Begin {
 
         // validate the error code
         //    Assert.assertEquals(200, getResponse.getStatusCode());  After executing API - We can validate it. Here no real API so commenting it and validating below with expected abd actual
-        Assert.assertEquals(statusCode, 200);
+        Assert.assertEquals(statusCode, getResponse.getStatusCode());
         /*
         add any other validation here.
          */
+    }
+
+    @BeforeClass
+    public static void setup() {
+        // Start WireMock server before all tests
+       WireMockServerSetup.startServer();
+        RestAssured.baseURI = "http://localhost:8083";
+    }
+
+   // @AfterClass
+    public static void tearDown() {
+        // Stop WireMock server after all tests
+        WireMockServerSetup.stopServer();
     }
 }

@@ -1,0 +1,29 @@
+{
+  "total_spent": 5000.00,
+  "spending_breakdown": [
+    {
+      "category": "Groceries",
+      "amount": 1200.00
+    },
+    {
+      "category": "Rent",
+      "amount": 2000.00
+    },
+    {
+      "category": "Entertainment",
+      "amount": 800.00
+    },
+    {
+      "category": "Utilities",
+      "amount": 500.00
+    },
+    {
+      "category": "Transport",
+      "amount": 500.00
+    }
+  ],
+  "highest_spending_category": {
+    "category": "Rent",
+    "amount": 2000.00
+  }
+}

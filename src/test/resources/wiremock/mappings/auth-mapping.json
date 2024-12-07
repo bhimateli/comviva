@@ -1,0 +1,21 @@
+{
+  "request": {
+    "method": "POST",
+    "urlPath": "/auth/token",
+    "bodyPatterns": [
+      {
+        "equalToJson": {
+          "username": "test_user",
+          "password": "test_password"
+        }
+      }
+    ]
+  },
+  "response": {
+    "status": 201,
+    "bodyFileName": "auth-response.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

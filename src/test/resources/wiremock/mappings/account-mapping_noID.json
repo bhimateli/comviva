@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/account"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "bodyFileName": "C:\\project\\expense\\comviva\\src\\test\\resources\\wiremock\\files\\account_response_noAccoundID.json"
+  }
+}

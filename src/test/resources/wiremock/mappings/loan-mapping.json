@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/loans"
+  },
+
+  "response": {
+    "status": 200,
+    "bodyFileName": "loan_response.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

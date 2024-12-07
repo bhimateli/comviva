@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/spending-insights"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "spending_insight_response.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
