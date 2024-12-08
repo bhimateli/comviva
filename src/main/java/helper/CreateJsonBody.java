@@ -14,6 +14,6 @@ public class CreateJsonBody {
      */
 
     /*
-    user pojo class so this is not used anywhere.
+    used pojo class for serialization and deserialization(Jackson library) so this is not used anywhere.
      */
 }
