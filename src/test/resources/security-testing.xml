@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="SAAS - API Product" parallel="methods" thread-count="1"	preserve-order="false">
+
+    <listeners>
+        <listener
+                class-name="common.CustomApiListener" />
+
+    </listeners>
+
+    <test name="Security-Test">
+        <classes>
+            <class name="securityTesting.api.AccountApiSecurityTest"/>
+        </classes>
+
+    </test>
+
+
+
+
+
+
+</suite>
