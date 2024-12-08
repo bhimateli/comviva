@@ -22,17 +22,13 @@ public class Initializer extends Begin{
         configProperties = propertyfileUtil.loadParameters(configFile);
         configurationObj.setUrlBasePath(configProperties.getProperty("BaseUrl"));
         configurationObj.setContentType(configProperties.getProperty("ContentType"));
-        configurationObj.setUsersCount(configProperties.getProperty("TotalUsersCount"));
-        configurationObj.setPostsCount(configProperties.getProperty("TotalNumberOfPOST"));
-        configurationObj.setCommentsCount(configProperties.getProperty("TotalNumberOfComments"));
+
 
 
         System.out.println("The file name is "+configFile);
         System.out.println("Base URI is  "+configurationObj.getUrlBasePath());
         System.out.println("ContentType  "+configurationObj.getContentType());
-        System.out.println("TotalUsersCount  "+configurationObj.getUsersCount());
-        System.out.println("TotalNumberOfPOST  "+configurationObj.getPostsCount());
-        System.out.println("TotalNumberOfComments  "+configurationObj.getCommentsCount());
+
     }
 
 
