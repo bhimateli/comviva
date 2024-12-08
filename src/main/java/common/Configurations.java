@@ -41,7 +41,7 @@ public class Configurations {
     private static Logger logger = LoggerFactory.getLogger(Configurations.class);
     private String urlBasePath;
     private String contentType;
-    private String usersCount;
-    private String postsCount;
-    private String commentsCount;
+   /*
+   add if you need more attributed to read from the properies file
+    */
 }
